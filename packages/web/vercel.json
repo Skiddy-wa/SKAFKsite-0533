@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/rpc/:path*",
-      "destination": "https://runable.app*"
+      "destination": "/src/api/:path*"
     },
     {
       "source": "/(.*)",
