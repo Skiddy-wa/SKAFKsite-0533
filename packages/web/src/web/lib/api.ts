@@ -2,15 +2,10 @@ import { createORPCClient } from "@orpc/client";
 import { RPCLink } from "@orpc/client/fetch";
 import { createTanstackQueryUtils } from "@orpc/tanstack-query";
 import type { AppRouterClient } from "../../../api";
-import { authClient } from "./auth";
 
 const link = new RPCLink({
-    // Mudamos aqui para conectar direto com a fonte de jogos oficial da internet
     url: "https://cheapshark.com",
-    headers: () => {
-        const token = authClient.managedAuth.getToken();
-        return token ? { Authorization: Bearer ${token} } : {};
-    },
+    headers: {}
 });
 
 /* Direct typed client: await client.ping() */
