@@ -1,12 +1,23 @@
-{
-  "rewrites": [
+{ 
+ "versions": 2, "builds":[
+   {
+     "src": "src/server.ts",
+     "use": "@vercel/node"
+   },
+   {
+     "src": "package.json",
+     "use": "@vercel/next"
+   }
+ ],
+  "routes": [
     {
-      "source": "/api/rpc/:path*",
-      "destination": "/src/api/:path*"
+      "src": "api/rpc/(.*)",
+      "dest": "src/server.ts"
     },
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "src": "/(.*)",
+      "dest":"/$1"
     }
   ]
 }
+         
